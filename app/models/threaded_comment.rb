@@ -1,3 +1,3 @@
 class ThreadedComment < ApplicationRecord
-  belongs_to :comment
+  belongs_to :main_comment
 end

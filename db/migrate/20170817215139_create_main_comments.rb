@@ -1,12 +1,12 @@
-class CreateComments < ActiveRecord::Migration[5.1]
+class CreateMainComments < ActiveRecord::Migration[5.1]
   def change
-    create_table :comments do |t|
+    create_table :main_comments do |t|
       t.text :body
       t.string :image
       t.boolean :escorrupto
       t.integer :likes
       t.integer :dislikes
-      t.references :person, foreign_key: true, index: true
+      t.references :target, foreign_key: true
 
       t.timestamps
     end

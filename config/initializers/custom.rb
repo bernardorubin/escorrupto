@@ -1,1 +1,0 @@
-ActiveAdmin::Comment.table_name = ActiveRecord::Migrator.proper_table_name(ActiveAdmin::Comment.table_name)
