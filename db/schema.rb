@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817212038) do
+ActiveRecord::Schema.define(version: 20170817215243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,19 +46,19 @@ ActiveRecord::Schema.define(version: 20170817212038) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "main_comments", force: :cascade do |t|
     t.text "body"
     t.string "image"
     t.boolean "escorrupto"
     t.integer "likes"
     t.integer "dislikes"
-    t.bigint "person_id"
+    t.bigint "target_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["person_id"], name: "index_comments_on_person_id"
+    t.index ["target_id"], name: "index_main_comments_on_target_id"
   end
 
-  create_table "people", force: :cascade do |t|
+  create_table "targets", force: :cascade do |t|
     t.string "name"
     t.string "profession"
     t.string "position"
@@ -74,10 +74,10 @@ ActiveRecord::Schema.define(version: 20170817212038) do
     t.boolean "escorrupto"
     t.integer "likes"
     t.integer "dislikes"
-    t.bigint "comment_id"
+    t.bigint "main_comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["comment_id"], name: "index_threaded_comments_on_comment_id"
+    t.index ["main_comment_id"], name: "index_threaded_comments_on_main_comment_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,6 +99,6 @@ ActiveRecord::Schema.define(version: 20170817212038) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "people"
-  add_foreign_key "threaded_comments", "comments"
+  add_foreign_key "main_comments", "targets"
+  add_foreign_key "threaded_comments", "main_comments"
 end
