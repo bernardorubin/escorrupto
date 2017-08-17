@@ -10,13 +10,13 @@ end
 gem 'simple_form'
 gem 'slim'
 gem 'jquery-rails'
-gem 'cocoon'
-gem 'cancancan'
+gem 'cancancan' #
 gem 'bootstrap-sass', '~> 3.3.6'
-gem "font-awesome-rails"
-gem 'devise'
-gem 'devise-i18n'
+gem "font-awesome-rails" #
+gem 'devise' #
+gem 'devise-i18n' #
 
+# gem 'cocoon'
 # gem 'materialize-form'
 # gem 'materialize-sass'
 # gem 'material_icons'

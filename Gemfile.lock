@@ -55,7 +55,6 @@ GEM
     byebug (9.0.6)
     cancancan (2.0.0)
     choice (0.2.0)
-    cocoon (1.2.10)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -231,7 +230,6 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   cancancan
-  cocoon
   coffee-rails (~> 4.2)
   devise
   devise-i18n
