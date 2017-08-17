@@ -6,7 +6,7 @@ class CreateThreadedComments < ActiveRecord::Migration[5.1]
       t.boolean :escorrupto
       t.integer :likes
       t.integer :dislikes
-      t.references :comment, foreign_key: true, index: true
+      t.references :main_comment, foreign_key: true
 
       t.timestamps
     end
