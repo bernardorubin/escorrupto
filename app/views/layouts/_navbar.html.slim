@@ -47,6 +47,9 @@ nav.navbar.navbar-default
           | Submit
       ul.nav.navbar-nav.navbar-right
         li
+          = link_to destroy_user_session_path, method: 'DELETE' do
+            | Cerrar Sesión
+        li
           a[href="#"]
             | Log Out
             i.fa.fa-sign-out[aria-hidden="true" style="margin-left:5px"]
