@@ -9,7 +9,12 @@ html
   body
     = render 'layouts/navbar'
     div[style="text-align:center"]
-      = notice || alert
+    - if notice
+      .alert.alert-success[role="alert"]
+        = notice
+    -elsif alert
+      .alert.alert-danger[role="alert"]
+        = alert
     .container
       = yield
     = render 'layouts/footer'
