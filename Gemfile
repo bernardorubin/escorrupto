@@ -15,6 +15,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails" #
 gem 'devise' #
 gem 'devise-i18n' #
+gem 'activeadmin'
 
 # gem 'cocoon'
 # gem 'materialize-form'
