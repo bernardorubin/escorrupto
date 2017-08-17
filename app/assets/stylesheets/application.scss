@@ -21,5 +21,58 @@ $border-radius-base: 2px;
 @import "bootstrap";
 @import "font-awesome";
 
+.thumbs {
+  float: right;
+  font-size: 40px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
 
-@input
+.fa-thumbs-o-down {
+}
+
+.fa-thumbs-o-up {
+  position: inherit;
+  margin-right: 5px;
+}
+
+.fa-comments-o {
+  margin-top: -25px;
+  float: left;
+  font-size: 50px;
+}
+
+.comments-info {
+  p {
+    font-size: 12px;
+    margin-top: 24px;
+    padding-left: 5px;
+  }
+}
+
+.panel-default {
+  width: 400px;
+}
+
+p.rank {
+  position: absolute;
+  margin-left: 200px;
+  margin-top: -25px;
+  font-size: 50px;
+}
+
+.fa-chevron-up {
+  position: absolute;
+  font-size: 25px;
+  margin-top: 15px;
+  margin-left: -27px;
+  color: lightGreen;
+}
+
+.fa-chevron-down {
+  position: absolute;
+  font-size: 25px;
+  margin-top: 25px;
+  margin-left: -27px;
+  color: red;
+}
