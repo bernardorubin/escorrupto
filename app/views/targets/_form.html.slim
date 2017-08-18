@@ -1,6 +1,22 @@
 = simple_form_for @target do |f|
   .row
-    .form-group.col-md-12
+    .form-group.col-md-4
       = f.label :name, "Nombre:", class: "col-md-2 control-label"
       .col-md-10
         = f.text_field :name, class: "form-control"
+    .form-group.col-md-4
+      = f.label :profession, "Profesión:", class: "col-md-2 control-label"
+      .col-md-10
+        = f.text_field :profession, class: "form-control"
+    .form-group.col-md-4
+      = f.label :position, "Puesto:", class: "col-md-2 control-label"
+      .col-md-10
+        = f.text_field :position, class: "form-control"
+    .form-group.col-md-4
+      /TODO: Lista de Ubicaciones
+      = f.label :location, "Ubicación:", class: "col-md-2 control-label"
+      .col-md-10
+        = f.text_field :name, class: "form-control"
+  .row
+    .container.col-xs-12
+      = f.submit "Guardar", class: "btn btn-default btn-primary pull-right"

@@ -10,6 +10,10 @@ class Ability
       can :manage, :all
     end
 
+    can :manage, Target do |p|
+      user == user
+    end
+
     # can [:read, :create, :update], Requisition do |r|
     #   r.user == user
     # end
