@@ -6,12 +6,17 @@
 
 # Ignore bundler config.
 /.bundle
+.idea/workspace.xml
 
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+.idea/workspace.xml
+.idea/inspectionProfiles
+.idea/inspectionProfiles/Project_Default.xml
+
 
 /node_modules
 /yarn-error.log

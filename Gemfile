@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+# ruby '2.3.3'
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -10,13 +10,14 @@ end
 gem 'simple_form'
 gem 'slim'
 gem 'jquery-rails'
-gem 'cocoon'
-gem 'cancancan'
+gem 'cancancan' #
 gem 'bootstrap-sass', '~> 3.3.6'
-gem "font-awesome-rails"
-gem 'devise'
-gem 'devise-i18n'
+gem "font-awesome-rails" #
+gem 'devise' #
+gem 'devise-i18n' #
+gem 'activeadmin'
 
+# gem 'cocoon'
 # gem 'materialize-form'
 # gem 'materialize-sass'
 # gem 'material_icons'

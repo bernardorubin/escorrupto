@@ -1,0 +1,56 @@
+.page-header
+  h1
+    | Los Mas Corruptos de Mexico
+  small
+    | Subtext for header
+
+
+br
+  .panel.panel-default
+    .panel-body
+      |  Javier Duarte
+      p.rank
+        i.fa.fa-chevron-up[aria-hidden="true"]
+        | #1
+      .thumbs
+        a[href="#"]
+          i.fa.fa-thumbs-o-up[aria-hidden="true"]
+        a[href="#"]
+          i.fa.fa-thumbs-o-down[aria-hidden="true"]
+      .comments-info
+        i.fa.fa-comments-o[aria-hidden="true"]
+        p
+        | 400,200
+
+  .panel.panel-default
+    .panel-body
+      |  Enrique Peña Nieto
+      p.rank
+        i.fa.fa-chevron-down[aria-hidden="true"]
+        | #2
+      .thumbs
+        a[href="#"]
+          i.fa.fa-thumbs-o-up[aria-hidden="true"]
+        a[href="#"]
+          i.fa.fa-thumbs-o-down[aria-hidden="true"]
+      .comments-info
+        i.fa.fa-comments-o[aria-hidden="true"]
+        p
+        | 100,300
+
+
+= link_to 'Nuevo Corrupto', new_target_path, class: "btn btn-sm btn-primary"
+
+.container-fluid
+  h1[style="text-align:center"]
+    | Todos los Corruptos
+  .home
+    - @targets.each do |q|
+      .col-xs-12.col-sm-8.col-sm-offset-2.patients
+        = q.name
+        = link_to target_path(q), class: "btn btn-sm btn-primary" do
+          | Ver
+        /= link_to q.date.to_date, appointment_path(q)
+        /= Patient.find_by_id(q.patient_id).last_name
+        /= Patient.find_by_id(q.patient_id).first_name
+
