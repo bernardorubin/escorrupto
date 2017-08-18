@@ -5,15 +5,14 @@ class TargetsController < ApplicationController
 
   def new
     @target = Target.new
-    # @locations = ['yes', 'no']
+    @locations = ['Querétaro', 'DF']
   end
 
   def create
     @target = Target.new(target_params)
-    @target.user_id = current_user.id
     if @target.save
       flash[:notice] = 'Creado'
-      redirect_to requisition_path (@target)
+      redirect_to target_path (@target)
     else
       flash.now[:alert] = 'Arregla las cosas'
       render :new
@@ -31,46 +30,46 @@ class TargetsController < ApplicationController
   # def edit
   # end
 
-  # def update
-  #   if cannot?(:update, @requisition)
-  #     redirect_to requisitions_path, alert: 'No Autorizado a editar solicitudes que no son tuyas'
-  #   else
-  #     if @requisition.update target_params
-  #       redirect_to requisition_path(@requisition), notice: 'Solicitud actualizada'
-  #     else
-  #       render :edit
-  #     end
-  #   end
-  # end
+  def update
+    if cannot?(:update, @target)
+      redirect_to targets_path, alert: 'No Autorizado'
+    else
+      if @target.update target_params
+        redirect_to target_path(@target), notice: 'Actualizado'
+      else
+        render :edit
+      end
+    end
+  end
 
   # def destroy
-  #   if cannot?(:destroy, @requisition)
-  #     redirect_to requisitions_path, alert: 'No Autorizado a eliminar tus solicitudes'
+  #   if cannot?(:destroy, @target)
+  #     redirect_to targets_path, alert: 'No Autorizado a eliminar tus solicitudes'
   #   else
-  #     @requisition.destroy
-  #     redirect_to requisitions_path, notice: 'Solicitud eliminada'
+  #     @target.destroy
+  #     redirect_to targets_path, notice: 'Solicitud eliminada'
   #   end
   # end
 
   private
 
-  # def authorize
-  #   if cannot?(:manage, @requisition)
-  #     redirect_to requisitions_path, alert: 'No Autorizado a leer solicitudes que no son tuyas'
-  #   end
-  # end
+  def authorize
+    if cannot?(:manage, @target)
+      redirect_to targets_path, alert: 'No Autorizado'
+    end
+  end
 
-  # def target_params
-  #   params.require(:target).permit(:income, :address_years])
-  # end
+  def target_params
+    params.require(:target).permit([:name, :profession, :position, :location])
+  end
 
-  # def find_target
-  #   # @target = Target.find params[:id]
-  #   begin
-  #     @target ||= Target.find(params[:id])
-  #   rescue ActiveRecord::RecordNotFound
-  #     redirect_to corrupts_path, alert: "ID Not Found"
-  #   end
-  # end
+  def find_target
+    # @target = Target.find params[:id]
+    begin
+      @target ||= Target.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to targets_path, alert: "ID Not Found"
+    end
+  end
 
 end

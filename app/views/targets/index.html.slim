@@ -39,8 +39,18 @@ br
         | 100,300
 
 
-h1
-  | Corruptos
-
 = link_to 'Nuevo Corrupto', new_target_path, class: "btn btn-sm btn-primary"
+
+.container-fluid
+  h1[style="text-align:center"]
+    | Todos los Corruptos
+  .home
+    - @targets.each do |q|
+      .col-xs-12.col-sm-8.col-sm-offset-2.patients
+        = q.name
+        = link_to target_path(q), class: "btn btn-sm btn-primary" do
+          | Ver
+        /= link_to q.date.to_date, appointment_path(q)
+        /= Patient.find_by_id(q.patient_id).last_name
+        /= Patient.find_by_id(q.patient_id).first_name
 
