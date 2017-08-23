@@ -1,11 +1,23 @@
 h1
+  | Nombre:
   = @target.name
 h2
+  | Profesión:
   = @target.profession
 h3
+  | Puesto:
   = @target.position
 h4
+  | Estado:
   = @target.location
+.thumbs
+  - if user_signed_in? && can?(:like, @target)
+    - if @target.liked_by?(current_user)
+      = link_to '<i class="fa fa-thumbs-down" aria-hidden="true" style="color: red"></i>'.html_safe, like_path(@target.like_for(current_user)), method: :delete
+    - else
+      = link_to '<i class="fa fa-thumbs-up" aria-hidden="true"></i>'.html_safe, target_likes_path(@target), method: :post
+  = pluralize @target.likes.count, 'like'
+
 / TODO: fix styles add likes dislikes comments
 = link_to edit_target_path(@target), class: 'btn btn-sm btn-primary' do
   | Editar
