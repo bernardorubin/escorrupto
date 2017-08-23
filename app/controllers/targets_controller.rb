@@ -1,5 +1,5 @@
 class TargetsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :destroy, :update]
   before_action :find_target, only: [:show, :edit, :destroy, :update]
   before_action :authorize, only: [:edit, :destroy, :update]
 
@@ -24,7 +24,11 @@ class TargetsController < ApplicationController
   end
 
   def index
-    @targets = Target.all.latest_first
+    # @targets = Target.all.latest_first
+    @targets =  Target.left_joins(:likes)
+                       .group(:id)
+                       .order('COUNT(likes.id) DESC')
+                       .limit(10)
   end
 
   # def edit

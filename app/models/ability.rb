@@ -14,6 +14,14 @@ class Ability
       user == user
     end
 
+    # cannot :like, Target do |p|
+    #   p.user == user
+    # end
+    #
+    # can :like, Target do |p|
+    #   p.user != user
+    # end
+
     # can [:read, :create, :update], Requisition do |r|
     #   r.user == user
     # end

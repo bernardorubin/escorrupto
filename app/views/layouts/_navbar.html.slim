@@ -24,7 +24,7 @@ nav.navbar.navbar-default
         /     | Link
         li.dropdown
           a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"]
-            | Locación
+            | Estado
             span.caret
           ul.dropdown-menu
             li
@@ -51,6 +51,12 @@ nav.navbar.navbar-default
 
       ul.nav.navbar-nav.navbar-right
         li
-          = link_to destroy_user_session_path, method: 'DELETE' do
-            | Cerrar Sesión
-            i.fa.fa-sign-out[aria-hidden="true" style="margin-left:5px"]
+          - if user_signed_in?
+            = link_to destroy_user_session_path, method: 'DELETE' do
+              | Cerrar Sesión
+              i.fa.fa-sign-out[aria-hidden="true" style="margin-left:5px"]
+          - else
+            li
+              = link_to "Ingresar", new_user_session_path
+            li
+              = link_to "Registrarse", new_user_registration_path
