@@ -2,8 +2,10 @@
   h1
     | El Muro de La Fama
   small
-    | Los Más Corruptos en México
-= link_to 'Nuevo Corrupto', new_target_path, class: "btn btn-lg btn-primary"
+    | Los Más Corruptos en México Ordenados por los más likeados
+= link_to new_target_path, class: "btn btn-lg btn-primary" do
+  i.fa.fa-user-secret aria-hidden="true"
+  | Dar de alta a un Nuevo Corrupto
 hr
 - @targets.each do |q|
   .panel.panel-primary
