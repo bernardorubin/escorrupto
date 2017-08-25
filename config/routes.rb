@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   root to:'targets#index'
   resources :targets, shallow: true do
     resources :likes, only: [:create, :destroy]
+    resources :comments
+  end
+
+  resources :comments do
+    resources :comments
   end
 end
