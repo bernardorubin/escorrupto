@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+
+  get 'comments/create'
+
   get 'target/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
