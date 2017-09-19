@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+
+  get 'comments/create'
+
   get 'target/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -7,5 +11,10 @@ Rails.application.routes.draw do
   root to:'targets#index'
   resources :targets, shallow: true do
     resources :likes, only: [:create, :destroy]
+    resources :comments
+  end
+
+  resources :comments do
+    resources :comments
   end
 end

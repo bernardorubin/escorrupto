@@ -1,7 +1,7 @@
 class TargetsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy, :update]
   before_action :find_target, only: [:show, :edit, :destroy, :update]
-  before_action :authorize, only: [:new, :edit, :destroy, :update]
+  before_action :authorize, only: [:edit, :destroy, :update]
 
   def new
     @target = Target.new

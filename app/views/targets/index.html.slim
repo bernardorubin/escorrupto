@@ -1,9 +1,16 @@
 .page-header
   h1
-    | El Muro de La Fama
+    | ES CORRUPTO
   small
-    | Los Más Corruptos en México
-= link_to 'Nuevo Corrupto', new_target_path, class: "btn btn-lg btn-primary"
+    | La denuncia en México no sirve de Nada Igual y La vergüenza pública funcione Mejor
+= link_to new_target_path, class: "btn btn-lg btn-primary" do
+  i.fa.fa-user-secret aria-hidden="true"
+  | Dar de alta a un Nuevo Corrupto de forma anónima
+hr
+h2
+  | El Muro de la Fama
+small
+  | Los Más Corruptos en México Ordenados por los más likeados
 hr
 - @targets.each do |q|
   .panel.panel-primary
