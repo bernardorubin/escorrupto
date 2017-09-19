@@ -1,5 +1,5 @@
 class Target < ApplicationRecord
-  has_many :main_comments
+  has_many :comments, as: :commentable
   has_many :likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
 

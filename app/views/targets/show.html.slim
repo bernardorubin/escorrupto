@@ -21,3 +21,20 @@ h4
 / TODO: fix styles add likes dislikes comments
 = link_to edit_target_path(@target), class: 'btn btn-sm btn-primary' do
   | Editar
+
+
+/TODO
+
+br
+small
+  | Submitted
+  = time_ago_in_words(@target.created_at)
+  |  ago
+h3
+  | Comments
+= form_for [@target, Comment.new] do |f|
+  = f.text_area :body, placeholder: "Add a comment"
+  br
+  = f.submit "Add Comment"
+ul
+  = render(partial: 'comments/comment', collection: @target.comments)
